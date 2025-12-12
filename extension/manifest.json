@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "IFrame Monitor",
+  "version": "2.1",
+  "description": "Monitors DOM for injected iframes and intercepts their network requests",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Iframe Monitor Settings"
+  },
+  "permissions": [
+    "storage", 
+    "activeTab",
+    "webRequest",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy":{
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
