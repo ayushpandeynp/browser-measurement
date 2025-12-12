@@ -1,6 +1,6 @@
 # Browser Measurement Experiment
 
-Please follow the instructions below step by step to install the requirements. If you face any issue/error on any part of the step, please contact me before moving on to the next step.
+Please follow the instructions below step by step (1-3) to install the requirements. If you face any issue/error at any part of the step, please contact me before moving to the next step.
 
 ### Step 1
 Download this respository. You can use the green **Code** button on this page then **Download ZIP**. After download, unzip the file.
@@ -52,7 +52,14 @@ If you have macOS, please ignore this section and move to "Step 3: macOS Users".
 
 <img src="screenshots/5.png" alt="download nodejs" width="600" style="margin-left: 40px" />
 
-- Once you have installed Node.js, open Task Manager (Press Ctrl + Shift + Esc). [TODO]
+- Once you have installed Node.js, open Command Prompt and run the following. Make sure you are inside ```browser-measurement``` folder. Replace ```YOUR_NET_ID``` with your NYU Net ID.
+```bash
+npm i -g pm2
+cd monitor
+pm2 start monitor.js -- YOUR_NET_ID 2
+```
+
+- You will see a file ```windows-service.bat``` inside the current ```monitor``` folder. Open Run dialog (Windows + R) and type ```shell:startup```. This will open the **Startup** folder on Windows. Copy the ```windows-service.bat``` file inside this startup folder.
 
 Now, keep your laptop charged, connected to the internet at all times.
 

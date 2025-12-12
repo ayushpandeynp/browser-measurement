@@ -59,14 +59,20 @@ if (!fs.existsSync(CACHE_DIR)) {
   log(`Created cache directory: ${CACHE_DIR}`);
 }
 
-// create a windows-service.bat file on this folder
+// create a windows-service.bat file in this folder
+const monitorJsFullPath = path.join(__dirname, 'monitor.js');
+
+// Wrap the path in quotes in case it contains spaces
 const windowsServiceBatContent = `@echo off
-pm2 start monitor.js -- ${USER_ID} ${RESTART_HOUR}`;
+pm2 start "${monitorJsFullPath}" -- ${USER_ID} ${RESTART_HOUR}`;
+
 const windowsServiceBatPath = path.join(__dirname, 'windows-service.bat');
+
 if (!fs.existsSync(windowsServiceBatPath)) {
   fs.writeFileSync(windowsServiceBatPath, windowsServiceBatContent);
   log(`Created Windows service batch file: ${windowsServiceBatPath}`);
 }
+
 
 // Function to list installed Chrome extensions
 function listChromeExtensions() {
