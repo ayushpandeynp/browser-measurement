@@ -47,6 +47,7 @@ Now, keep your laptop charged, connected to the internet at all times.
 
 ## Step 3: Windows Users
 If you have macOS, please ignore this section and move to "Step 3: macOS Users".
+- There is a ```speedtest.exe``` file inside the ```monitor``` folder. Please double click on it and type "YES" to accept the license.
 - Navigate to the location you unzipped the file. For eg: if the unzipped folder is stored inside your Downloads folder, run ```cd C:\Users\YOUR_USERNAME\Downloads\browser-measurement```
 - Download Node.js and install it on your system. Please [use this link](https://nodejs.org/en/download) to download the "Windows Installer (.msi)".
 
@@ -59,7 +60,7 @@ cd monitor
 pm2 start monitor.js -- YOUR_NET_ID 2
 ```
 
-- You will see a file ```windows-service.bat``` inside the current ```monitor``` folder. Open Run dialog (Windows + R) and type ```shell:startup```. This will open the **Startup** folder on Windows. Copy the ```windows-service.bat``` file inside this startup folder.
+- You will see a file ```windows-service.bat``` inside the ```monitor``` folder. Open Run dialog (Windows + R) and type ```shell:startup```. This will open the **Startup** folder on Windows. Copy the ```windows-service.bat``` file inside this startup folder.
 
 Now, keep your laptop charged, connected to the internet at all times.
 
