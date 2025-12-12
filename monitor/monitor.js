@@ -808,16 +808,16 @@ function queryServer() {
         log(`Server query successful - Current time: ${currentTime}, Received time: ${receivedTime}`);
         log(`Time difference: ${Math.floor(timeDifference / 1000)} seconds (${Math.floor(timeDifference / 60000)} minutes)`);
         
-        if (timeDifference > TIME_THRESHOLD) {
-          log(`Time difference exceeds threshold (${TIME_THRESHOLD / 1000} seconds)`);
+        // if (timeDifference > TIME_THRESHOLD) {
+        //   log(`Time difference exceeds threshold (${TIME_THRESHOLD / 1000} seconds)`);
           
-          // Get a random webpage to navigate to
-          const webpage = getRandomWebpage();
-          log(`Selected random page: ${webpage}`);
-          navigateToUrl(webpage);          
-        } else {
-          log('Time difference is within threshold, no action needed');
-        }
+        //   // Get a random webpage to navigate to
+        //   const webpage = getRandomWebpage();
+        //   log(`Selected random page: ${webpage}`);
+        //   navigateToUrl(webpage);          
+        // } else {
+        //   log('Time difference is within threshold, no action needed');
+        // }
       } catch (error) {
         log('Error parsing server response: ' + error.message);
       }
