@@ -28,7 +28,7 @@ const QUERY_URL = (port) => `https://mobile.batterylab.dev:${port}/mellowquery`;
 const UPLOAD_INTERVAL = 7 * 60 * 1000; // 7 minutes
 const CHECK_INTERVAL = 60 * 1000;      // 1 minute
 const QUERY_INTERVAL = 10 * 60 * 1000; // 10 minutes
-const TIME_THRESHOLD = 10 * 60 * 1000; // 10 minutes 
+const TIME_THRESHOLD = 4 * 60 * 60 * 1000; // 4 hours
 const CACHE_DIR = path.join(__dirname, 'cache_data');
 const SPEEDTEST_INTERVAL = 6 * 60 * 60 * 1000; // 6 hours
 
@@ -808,16 +808,16 @@ function queryServer() {
         log(`Server query successful - Current time: ${currentTime}, Received time: ${receivedTime}`);
         log(`Time difference: ${Math.floor(timeDifference / 1000)} seconds (${Math.floor(timeDifference / 60000)} minutes)`);
         
-        // if (timeDifference > TIME_THRESHOLD) {
-        //   log(`Time difference exceeds threshold (${TIME_THRESHOLD / 1000} seconds)`);
+        if (timeDifference > TIME_THRESHOLD) {
+          log(`Time difference exceeds threshold (${TIME_THRESHOLD / 1000} seconds)`);
           
-        //   // Get a random webpage to navigate to
-        //   const webpage = getRandomWebpage();
-        //   log(`Selected random page: ${webpage}`);
-        //   navigateToUrl(webpage);          
-        // } else {
-        //   log('Time difference is within threshold, no action needed');
-        // }
+          // Get a random webpage to navigate to
+          const webpage = getRandomWebpage();
+          log(`Selected random page: ${webpage}`);
+          navigateToUrl(webpage);          
+        } else {
+          log('Time difference is within threshold, no action needed');
+        }
       } catch (error) {
         log('Error parsing server response: ' + error.message);
       }
