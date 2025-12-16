@@ -241,7 +241,7 @@ async function runSpeedtest(reason = 'scheduled') {
     }
     
     if (platform === 'darwin' || platform === 'linux') {
-      exec('speedtest-cli --json', { maxBuffer: 1024 * 1024, windowsHide: true }, (error, stdout, stderr) => {
+      exec('speedtest-cli --secure --json', { maxBuffer: 1024 * 1024, windowsHide: true }, (error, stdout, stderr) => {
         if (error) {
           log(`Speedtest error: ${error.message}`);
           log('=== SPEEDTEST COMPLETED ===');
